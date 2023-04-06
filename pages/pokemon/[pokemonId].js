@@ -43,8 +43,6 @@ export default function Pokemon({ pokemon }) {
     return <h1>Carregando...</h1>
   }
 
-  console.log(pokemon.types[0].type.name)
-
   return (
     <div
       className={`${styles.pokemon_container} ${
