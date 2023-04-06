@@ -1,48 +1,45 @@
 import Image from "next/image"
+import Link from "next/link"
 
-import styles from '../../styles/Pokemon.module.css';
+import styles from "../../styles/Pokemon.module.css"
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
 
-export const getStaticPaths = async() => {
-   const maxPokemons = 251
-   const api = `https://pokeapi.co/api/v2/pokemon/`
+export const getStaticPaths = async () => {
+  const maxPokemons = 251
+  const api = `https://pokeapi.co/api/v2/pokemon/`
 
-   const res = await fetch(`${api}/?limit=${maxPokemons}`)
-   const data = await res.json()
+  const res = await fetch(`${api}/?limit=${maxPokemons}`)
+  const data = await res.json()
 
-   const paths = data.results.map((pokemon, index) => {
-     return {
-       params: { pokemonId: (index + 1).toString() },
-     }
-   })
+  const paths = data.results.map((pokemon, index) => {
+    return {
+      params: { pokemonId: (index + 1).toString() },
+    }
+  })
 
-   return {
-     paths,
-     fallback: true,
-   }
+  return {
+    paths,
+    fallback: true,
+  }
 }
 
-export const getStaticProps = async(context) => {
- 
-   const id = context.params.pokemonId
+export const getStaticProps = async (context) => {
+  const id = context.params.pokemonId
 
-   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
 
-   const data = await res.json()
+  const data = await res.json()
 
-   return {
-    props: {pokemon: data},
-   }
+  return {
+    props: { pokemon: data },
+  }
 }
-
-
 
 export default function Pokemon({ pokemon }) {
-
   const router = useRouter()
 
-  if(router.isFallback) {
+  if (router.isFallback) {
     return <h1>Carregando...</h1>
   }
 
@@ -61,6 +58,16 @@ export default function Pokemon({ pokemon }) {
         height="200"
         alt={pokemon.name}
       />
+      <div className={styles.navigation}>
+       <Link href={
+        pokemon.id === 1 ? `http://localhost:3000/pokemon/999`
+        : `http://localhost:3000/pokemon/${pokemon.id - 1}`}>
+        Anterior
+       </Link>      
+       <Link href={`http://localhost:3000/pokemon/${pokemon.id + 1}`}>
+        Proximo
+       </Link>      
+      </div>
       <div>
         <p>
           <strong>Número:</strong>
