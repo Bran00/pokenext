@@ -57,6 +57,10 @@
   border-radius: 6px;
 }
 
+.navigation a:hover {
+  background-color: white;
+}
+
 .type_normal {
   background-color: #aa9;
 }
