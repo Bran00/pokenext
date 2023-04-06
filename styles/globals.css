@@ -6,6 +6,7 @@
 
 body {
   text-align: center;
+  position: relative;
 }
 
 .main-container {
