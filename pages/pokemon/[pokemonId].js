@@ -59,16 +59,13 @@ export default function Pokemon({ pokemon }) {
       <div className={styles.navigation}>
         <Link
           href={
-            pokemon.id === 1
-              ? `https://pokenext-bran00.vercel.app/999`
-              : `https://pokenext-bran00.vercel.app/${pokemon.id - 1}`
+            pokemon.id === 1 ? `/pokemon/999` : `/pokemon/${pokemon.id - 1}`
           }
         >
+         
           Anterior
         </Link>
-        <Link href={`https://pokenext-bran00.vercel.app/${pokemon.id + 1}`}>
-          Proximo
-        </Link>
+        <Link href={`/pokemon/${pokemon.id + 1}`}>Proximo</Link>
       </div>
       <div>
         <p>
