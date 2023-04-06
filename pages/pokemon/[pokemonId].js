@@ -2,6 +2,8 @@ import Image from "next/image"
 
 import styles from '../../styles/Pokemon.module.css';
 
+import { useRouter } from "next/router";
+
 export const getStaticPaths = async() => {
    const maxPokemons = 251
    const api = `https://pokeapi.co/api/v2/pokemon/`
@@ -17,7 +19,7 @@ export const getStaticPaths = async() => {
 
    return {
      paths,
-     fallback: false,
+     fallback: true,
    }
 }
 
@@ -34,9 +36,24 @@ export const getStaticProps = async(context) => {
    }
 }
 
+
+
 export default function Pokemon({ pokemon }) {
+
+  const router = useRouter()
+
+  if(router.isFallback) {
+    return <h1>Carregando...</h1>
+  }
+
+  console.log(pokemon.types[0].type.name)
+
   return (
-    <div className={styles.pokemon_container}>
+    <div
+      className={`${styles.pokemon_container} ${
+        styles["type_" + pokemon.types[0].type.name]
+      }`}
+    >
       <h1 className={styles.title}>{pokemon.name}</h1>
       <Image
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
@@ -45,7 +62,9 @@ export default function Pokemon({ pokemon }) {
         alt={pokemon.name}
       />
       <div>
-        <p><strong>Número:</strong></p>
+        <p>
+          <strong>Número:</strong>
+        </p>
         <p>#{pokemon.id}</p>
       </div>
       <div>
@@ -54,7 +73,12 @@ export default function Pokemon({ pokemon }) {
         </p>
         <div className={styles.type_container}>
           {pokemon.types.map((item, index) => (
-            <span className={`${styles.type} ${styles['type_' + item.type.name]}`} key={index}>{item.type.name}</span>
+            <span
+              className={`${styles.type} ${styles["type_" + item.type.name]}`}
+              key={index}
+            >
+              {item.type.name}
+            </span>
           ))}
         </div>
       </div>
