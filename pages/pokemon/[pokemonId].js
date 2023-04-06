@@ -57,14 +57,18 @@ export default function Pokemon({ pokemon }) {
         alt={pokemon.name}
       />
       <div className={styles.navigation}>
-       <Link href={
-        pokemon.id === 1 ? `http://localhost:3000/pokemon/999`
-        : `http://localhost:3000/pokemon/${pokemon.id - 1}`}>
-        Anterior
-       </Link>      
-       <Link href={`http://localhost:3000/pokemon/${pokemon.id + 1}`}>
-        Proximo
-       </Link>      
+        <Link
+          href={
+            pokemon.id === 1
+              ? `https://pokenext-bran00.vercel.app/999`
+              : `https://pokenext-bran00.vercel.app/${pokemon.id - 1}`
+          }
+        >
+          Anterior
+        </Link>
+        <Link href={`https://pokenext-bran00.vercel.app/${pokemon.id + 1}`}>
+          Proximo
+        </Link>
       </div>
       <div>
         <p>
