@@ -4,7 +4,7 @@
 
 ### This project
 
-Build to taste our habilities in Next using React aiming responsiveness with consumption GitHub API from Pokemon. Also used in this project CSS for style in the game.
+Build to taste our habilitates in Next using React aiming responsiveness with consumption GitHub API from Pokemon. Also used in this project CSS for style in the game.
 
 ## Features
 
@@ -13,13 +13,13 @@ Build to taste our habilities in Next using React aiming responsiveness with con
 => Components of Next; <br>
 => Modules of CSS; <br>
 => Custom own hooks; <br>
-=> Conventional Commmits. <br>
+=> Conventional Commits. <br>
 
 ### Live Version
 
 <a href="https://pokenext-bran00.vercel.app/">Click here to see the live project</a>
 
-### Tecnologies Used
+### Technologies Used
 
 =>[JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) for structure;
 =>[Next](https://nextjs.org/) for environment developer;
@@ -30,12 +30,12 @@ Build to taste our habilities in Next using React aiming responsiveness with con
 
 => This project used 5MB of memory local!
 
-## Instalation
+## Installation
 
 Use this project with:
 
 [First pass] Clone the repository: `git clone https://github.com/`
-[Second pass] Make the install the dependecies:
+[Second pass] Make the install the dependencies:
 
 ---
 
