@@ -1,6 +1,6 @@
 ## PokeNext
 
-![pokenext!](/public/images/gifProject.gif)
+![pokenext!](./public/images/gifProject.gif)
 
 ### This project
 
