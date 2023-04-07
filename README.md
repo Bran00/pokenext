@@ -41,7 +41,7 @@ Use this project with:
 
 ### npm install
 
-[third pass] Make the aplicattion run:
+[third pass] Make the application run:
 
 ---
 
