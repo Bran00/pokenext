@@ -39,13 +39,13 @@ Use this project with:
 
 ---
 
-## npm install
+### npm install
 
 [third pass] Make the aplicattion run:
 
 ---
 
-## npm run dev
+### npm run dev
 
 ## Came with me
 
